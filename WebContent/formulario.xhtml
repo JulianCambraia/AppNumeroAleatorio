@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Inteiro Aleatório</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages for="numero" style="color:red" />
+		<h:outputLabel value="Informe um número inteiro" />
+		<h:inputText id="numero" value="#{numeroAleatorio.numero}"
+			required="true" requiredMessage="Campo número deve ser preenchido.">
+			<f:convertNumber integerOnly="true" maxFractionDigits="0" pattern="#####"/> 
+			<f:validateLongRange minimum="1" maximum="99999" />
+		</h:inputText>
+		<h:commandButton action="#{numeroAleatorio.geraNumeroRandomico()}"
+			value="Enviar" />
+	</h:form>
+</h:body>
+</html>
